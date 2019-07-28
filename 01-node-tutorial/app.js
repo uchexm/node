@@ -1,8 +1,10 @@
-const secret = "SECRET REQUEST"
+const { error } = require("console");
+const { readFile, writeFile } = require("fs");
 
-const sayHi = (name) => {
-  console.log(`Hello there ${name}`);
-}
-require("./07-mind-grenade")
-sayHi("Uche");
-sayHi("Alex");
+readFile("./content/first.txt", "utf8", (error, result) => {
+  if (error) {
+    console.log(error);
+    return
+  }
+  console.log(result);
+})
