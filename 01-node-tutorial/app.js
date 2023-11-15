@@ -17,7 +17,11 @@ const getText = (path) => {
 
 
 const start = async () => {
-  const first = await getText("./content/first.txt")
-  console.log(first);
+  try {
+    const first = await getText("./content/first.txt")
+    console.log(first);
+  } catch (error) {
+    console.log(error);
+  }
 }
 start();
