@@ -6,11 +6,16 @@ const server = http.createServer((req, res) => {
     res.end("Home page")
   }
   if (req.url === "/about") {
-    res.end("About page")
-  }
-  res.end("Error page")
+    //BLOCKING CODE!!!
+    for (let i = 0; i < 1000; i++) {
+      for (let j = 0; j < 1000; j++) {
+        console.log(`${j} ${i}`);
+      }
+      res.end("About page")
+    }
+    res.end("Error page")
 
-}
+  }
 )
 
 server.listen(5000, () => {
