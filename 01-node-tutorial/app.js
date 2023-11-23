@@ -1,7 +1,10 @@
-setInterval(() => {
-  console.log("Hello world!");
-}, 2000)
-console.log("I run first");
+const http = require('http');
 
-//process stays alive unless
-// kill process contol c
+const server = http.createServer((req, res) => {
+  console.log("request event");
+  res.end(req.url);
+})
+
+server.listen(5000, () => {
+  console.log("server listening on port: " + server.port);
+})
