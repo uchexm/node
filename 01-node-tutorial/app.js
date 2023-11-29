@@ -1,10 +1,16 @@
-const http = require('http');
+const { readFile } = require("fs");
+const { result } = require("lodash");
 
-const server = http.createServer((req, res) => {
-  console.log("request event");
-  res.end(req.url);
-})
-
-server.listen(5000, () => {
-  console.log("server listening on port: " + server.port);
-})
+const getText = (path) => {
+  return new Promise((resolve, reject) => {
+    readFile(path, "utf8", (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    })
+  }
+  )
+}
+getText("./content/first.txt").then(result => console.log(result)).catch(err => console.log(err));
