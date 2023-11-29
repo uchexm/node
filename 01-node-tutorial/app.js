@@ -1,7 +1,7 @@
-const secret = "SECRET REQUEST"
+const _ = require("lodash");
 
-const sayHi = (name) => {
-  console.log(`Hello there ${name}`);
-}
-sayHi("Uche");
-sayHi("Alex");
+const items = [1, [2, 3, [4]]];
+const newItems = _.flattenDeep(items)
+console.log(newItems);
+
+console.log("Hello world!");
