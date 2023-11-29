@@ -1,2 +1,7 @@
-console.log('Welcome to Node Tutorial')
-const name = 'Node and express Tutorial';
+const secret = "SECRET REQUEST"
+
+const sayHi = (name) => {
+  console.log(`Hello there ${name}`);
+}
+sayHi("Uche");
+sayHi("Alex");
